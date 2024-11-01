@@ -1,0 +1,171 @@
+<html>
+   <head>
+      <title>Phishing website Detection</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .row {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #FF9900;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #FF8000;
+        }
+
+        .result-text {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+
+        .col-md-6 {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+   </head>
+   <body>
+      <div class="container " style="background-color: #f0f0f0;">
+         <h1 class="text-center">PHISHING DETECTION SYSTEM</h1>
+        <h1 class="text-center">ADMIN PANEL</h1>
+<!--         <div class="row justify-content-center mt-5">-->
+<!--&lt;!&ndash;            <div class="col-md-6"  style="background-color: #dedada">&ndash;&gt;-->
+<!--&lt;!&ndash;               <h3 class="text-center">Model Buliding</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;               <form action="/adminpanel/" method="post" class="form-group" >&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  {% csrf_token %}&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <h6><span class="label label-default">Number of Decision trees:</span></h6>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <input type="number" name="n_trees" class="form-control" placeholder="Enter the number of Decision Trees you want to build">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <h6><span class="label label-default">Number of Features:</span></h6>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <input type="number" name="n_feat" class="form-control" placeholder="Enter the maximum number of features you want to include in each tree">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <h6><span class="label label-default">Maximum Depth of Tree:</span></h6>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <input type="number" name="max_depth" class="form-control" placeholder="Enter the maximum depth of each decision tree">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <div class="text-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <h6>{{out}}</h6>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <div class="text-center">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <input type="submit" value="CREATE MODEL" class="btn btn-primary m-2">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                 </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;               </form>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--        </div>-->
+<!--            <div class="row justify-content-center mt-5"  style="background-color: #c3bdbd">-->
+<!--                <h3 class="text-center">Feature Extraction</h3>-->
+<!--                <form action="/extractfeat/" method="post" class="form-group" >-->
+<!--                   {% csrf_token %}-->
+<!--                   <input type="text" name="url1" class="form-control" placeholder="Enter URL">-->
+<!--                  <div class="text-center">-->
+<!--                     <input type="submit" value="Extract Features" class="btn btn-primary m-2">-->
+<!--                  </div>-->
+<!--                  <h6>Features of {{url}} are <br>{{features}}</h6>-->
+<!--                </form>-->
+<!--             </div>-->
+
+<!--             <div class="col-md-6"  style="background-color: ##d0cccc">-->
+<!--                <h3 class="text-center">Detect Legitimacy</h3>-->
+<!--                <form action="/predictURL/" method="post" class="form-group">-->
+<!--                    {% csrf_token %}-->
+<!--                    <input type="text" name="url1" class="form-control" placeholder="Enter URL">-->
+<!--                    <div class="text-center">-->
+<!--                       <input type="submit" value="detect" class="btn btn-primary m-2">-->
+<!--                    </div>-->
+<!--                    {% comment %}-->
+<!--                    <h1>{{output}}</h1>-->
+<!--                    {% endcomment %}-->
+<!--                    <small class="form-text text-muted mt-3 text-center">-->
+<!--                       <h3>{{output1}}</h3>-->
+<!--                    </small>-->
+<!--                 </form>-->
+<!--             </div>-->
+
+<!--         </div>-->
+
+           <div class="container">
+
+               <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3 class="text-center">Detect Legitimacy</h3>
+                <form action="/predictURL/" method="post" class="form-group">
+                    {% csrf_token %}
+                    <input type="text" name="url1" class="form-control" placeholder="Enter URL">
+                    <div class="text-center">
+                        <input type="submit" value="Detect" class="btn">
+                    </div>
+                    {% comment %}
+                    <h1>{{output}}</h1>
+                    {% endcomment %}
+                    <small class="result-text">
+                        <h3>{{output1}}</h3>
+                    </small>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3 class="text-center">Feature Extraction</h3>
+                <form action="/extractfeat/" method="post" class="form-group">
+                    {% csrf_token %}
+                    <input type="text" name="url1" class="form-control" placeholder="Enter URL">
+                    <div class="text-center">
+                        <input type="submit" value="Extract Features" class="btn">
+                    </div>
+                    <h6 class="result-text">Features of {{url}} are <br>{{features}}</h6>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+      </div>
+   </body>
+</html>
